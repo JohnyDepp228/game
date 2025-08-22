@@ -2,18 +2,21 @@
 #define MAP_H
 
 #include <iostream>
-#include <random>
+#include <cstdlib>
+#include <ctime>
 #include "posxy.h"
 
 using namespace std;
+
 int type() {
-	static mt19937 rng(random_device{}());
-	static uniform_int_distribution<int>dist(1, 3);
-	return dist(rng);
+	int max = 3;
+	int min = 1;
+	return rand() % (max - min + 1)+ min;
 }
 
-void map(int a, int b, int(*ptr)()) {
+void map(int a, int b, int res) {
 	++b;
+	bool chek = false;
 	int x = 0, y = 0;
 	gotoxy(x, y);
 	for (int i = 0; i < a; i++) {
@@ -21,11 +24,17 @@ void map(int a, int b, int(*ptr)()) {
 		x++;
 		gotoxy(x, y);
 	}
+	if (res == 1) {
+		gotoxy(a-=5,y);
+		a += 5;
+		for (int i = 0; i < a; i++) {
+			cout << ' ';
+		}
+	}
 	y = b;
     x = 0;
     gotoxy(x, y);
 	for (int i = 0; i < a; i++) {
-		
 		cout << '*';
 		x++;
 		gotoxy(x, y);
