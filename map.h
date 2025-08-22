@@ -2,10 +2,17 @@
 #define MAP_H
 
 #include <iostream>
+#include <random>
 #include "posxy.h"
-using namespace std;
 
-void map(int a, int b) {
+using namespace std;
+int type() {
+	static mt19937 rng(random_device{}());
+	static uniform_int_distribution<int>dist(1, 3);
+	return dist(rng);
+}
+
+void map(int a, int b, int(*ptr)()) {
 	++b;
 	int x = 0, y = 0;
 	gotoxy(x, y);

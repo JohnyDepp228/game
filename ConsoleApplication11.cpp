@@ -14,7 +14,9 @@ void character(int a, int b);
 int main()
 {
     setlocale(LC_ALL, "RU");
-    map(40, 8);
+    int(*ptr)() = type;
+    cout << ptr();
+    //map(40, 8,ptr);
     //character(5, 5);
     return 0;
 }
