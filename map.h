@@ -14,47 +14,39 @@ int type() {
 	return rand() % (max - min + 1)+ min;
 }
 
-void map(int a, int b, int res) {
-	++b;
-	bool chek = false;
-	int x = 0, y = 0;
-	gotoxy(x, y);
-	for (int i = 0; i < a; i++) {
-		cout << '*';
-		x++;
-		gotoxy(x, y);
-	}
-	if (res == 1) {
-		gotoxy(a-=5,y);
-		a += 5;
-		for (int i = 0; i < a; i++) {
-			cout << ' ';
+void map(int sizeX,int sizeY,int posX,int posY) {
+	int arrRes[4];
+	int prev1 = 0;
+	int res = type();
+	for (int i = 0; i < 4; i++) {
+		res = type();
+		while (res == prev1) {
+			res = type();
 		}
+		arrRes[i] = res;
+		prev1 = res;
 	}
-	y = b;
-    x = 0;
-    gotoxy(x, y);
-	for (int i = 0; i < a; i++) {
+	gotoxy(posX, posY);
+	for (int i = 0; i < sizeX; i++) {
 		cout << '*';
-		x++;
-		gotoxy(x, y);
+		posX++;
+		gotoxy(posX, posY);
 	}
-	x = 0;
-	y = 0;
-	gotoxy(x, y);
-	for (int i = 0; i < b; i++) {
+	posX -= sizeX;
+	gotoxy(0, posY);
+	sizeY /= 2;
+	sizeY += 2;
+	for (int i = 0; i < sizeY; i++) {
 		cout << '*';
-		y++;
-		gotoxy(x, y);
+		posY++;
+		gotoxy(posX, posY);
 	}
-	x = a;
-	y = 0;
-	gotoxy(x, y);
-	++b;
-	for (int i = 0; i < b; i++) {
+	--posY;
+	gotoxy(posX, posY);
+	for (int i = 0; i < sizeX; i++) {
 		cout << '*';
-		y++;
-		gotoxy(x, y);
+		posX++;
+		gotoxy(posX, posY);
 	}
 }
 
