@@ -15,7 +15,10 @@ int main()
 {
     setlocale(LC_ALL, "RU");
     srand(time(0));
-    character(1, 9);
+    //character(1, 9);
+    mapUp(5, 10, 5, 15);
+    
     return 0;
+   
 }
 
