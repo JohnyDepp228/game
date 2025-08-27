@@ -83,7 +83,6 @@ void mapDown(int sizeX, int sizeY, int posX, int posY) {
 	}
 }
 
-
 void mapUp(int sizeX, int sizeY, int posX, int posY) {
 	gotoxy(posX, posY);
 	for (int i = 0; i < sizeX; i++) {
@@ -93,28 +92,28 @@ void mapUp(int sizeX, int sizeY, int posX, int posY) {
 	}
 	posX -= sizeX;
 	gotoxy(posX, posY);
-	sizeY /= 2;
-	sizeY += 2;
 	for (int i = 0; i < sizeY; i++) {
-		cout << '1';
+		cout << '*';
 		posY--;
 		gotoxy(posX, posY);
 	}
-	/*gotoxy(posX, posY);
+	//sizeX -= 7;
+	gotoxy(posX, posY);
 	for (int i = 0; i < sizeX; i++) {
-		cout << '*';
+		cout << '1';
 		posX++;
 		gotoxy(posX, posY);
 	}
-	posX -= sizeX;
-	posY -= sizeY;
-	posX += sizeX;
+	posY += sizeY;
+	sizeY -= 7;
 	gotoxy(posX, posY);
 	for (int i = 0; i < sizeY; i++) {
-		cout << '2';
+		cout << '*';
 		posY--;
 		gotoxy(posX, posY);
-	}*/
+	}
+	posY += sizeY;
+	gotoxy(posX, posY);
 }
 
 #endif MAP_H

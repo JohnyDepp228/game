@@ -14,7 +14,7 @@ void character(int a, int b) {
     int posX = 0;
     int posY = 6;
     map(sizeX, sizeY, posX, posY);
-    mapDown(sizeY, sizeX, posX + sizeX, posY);
+    mapUp(sizeY, sizeX, posX + sizeX, ((posY + (sizeY / 2)) + 1));
     gotoxy(a, b);
     int stA = a;
     int stB = b;
@@ -23,7 +23,7 @@ void character(int a, int b) {
         if (a > sizeX || a < 1) {
             system("cls");
             map(sizeX,sizeY,posX,posY);
-            mapDown(sizeY, sizeX, posX + sizeX, posY);
+            mapUp(sizeY, sizeX, posX + sizeX, ((posY + (sizeY / 2)) + 1));
             gotoxy(stA,b);
             a = stA;
             cout << '#';
@@ -31,7 +31,7 @@ void character(int a, int b) {
         if ( (b > (posY*2) - 1) || (b < posY + 1)) {
             system("cls");
             map(sizeX,sizeY,posX,posY);
-            mapDown(sizeY, sizeX, posX + sizeX,posY);
+            mapUp(sizeY, sizeX, posX + sizeX, ((posY + (sizeY / 2)) + 1));
             gotoxy(a, stB);
             b = stB;
             cout << '#';
@@ -39,7 +39,7 @@ void character(int a, int b) {
         movement(a, b);
         system("cls");
         map(sizeX, sizeY, posX, posY);
-        mapDown(sizeY, sizeX, posX + sizeX,posY);
+        mapUp(sizeY, sizeX, posX + sizeX, ((posY + (sizeY / 2)) + 1));
         gotoxy(a, b);
         cout << '#';
         Sleep(200);
